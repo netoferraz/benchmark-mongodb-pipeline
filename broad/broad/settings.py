@@ -21,6 +21,18 @@ SCHEDULER_PRIORITY_QUEUE = 'scrapy.pqueues.DownloaderAwarePriorityQueue'
 
 SCRAPY_BENCH_RANDOM_PAYLOAD_SIZE = None
 
+EXTENSIONS = {'broad.latencies.latencies.Latencies': 300}
+LATENCIES_INTERVAL = 2
+
+MONGODB_URI = 'mongodb://localhost:27017'
+MONGODB_DATABASE = 'scrapy'
+MONGODB_COLLECTION = 'news'
+
+ITEM_PIPELINES = {
+    'broad.mongosync.mongosync.MongoDBPipeline': 300,
+    #'broad.asyncpipe.pipelines.mongo.MongoPipeline': 300,
+}
+
 SPIDER_MIDDLEWARES = {
     'scrapy_bench.middlewares.RandomPayloadMiddleware': 1000,
 }

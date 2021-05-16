@@ -10,10 +10,17 @@ from scrapy.http import Request, HtmlResponse
 from scrapy.linkextractors import LinkExtractor
 
 from broad.items import Page
-
+import logging
 
 class BroadBenchSpider(scrapy.Spider):
     name = "broadspider"
+    logname = 'sync-test.log'
+    #logname = 'async-test.log'
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    fh = logging.FileHandler(logname)
+    fh.setLevel(logging.INFO)
+    logger.addHandler(fh)
 
     port = 8880
     n_domains = 1000
