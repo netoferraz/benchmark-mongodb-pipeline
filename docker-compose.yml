@@ -1,0 +1,11 @@
+mongo:
+    image: mongo:3.6
+    container_name: mongodb
+    restart: always
+    ports:
+        - 27017:27017
+    environment:
+        - PUID=1000
+        - PGID=1000
+    volumes:
+        - ~/development/Docker/Volumes/MongoDB:/data/db
